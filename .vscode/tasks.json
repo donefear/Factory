@@ -1,0 +1,42 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "serve",
+			"problemMatcher": [
+				{
+					"base": "$tsc-watch",
+					"background": {
+						"activeOnStart": true,
+						"beginsPattern": "webpack output is served from undefined",
+						"endsPattern": "｢wdm｣: Compiled successfully"
+					}
+				}
+			],
+			"label": "npm: serve",
+			"detail": "webpack serve",
+			"isBackground": true,
+			"dependsOn": ["npm: install"]
+		},
+		{
+			"type": "npm",
+			"script": "build",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": [],
+			"label": "npm: build",
+			"detail": "webpack",
+			"dependsOn": ["npm: install"]
+		},
+		{
+			"type": "npm",
+			"script": "install",
+			"problemMatcher": [],
+			"label": "npm: install",
+			"detail": "install dependencies from package"
+		}
+	]
+}

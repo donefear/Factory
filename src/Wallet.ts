@@ -18,7 +18,7 @@ class Wallet {
     }
 
     public set(count: number): void {
-        localStorage.setItem("Wallet_" + this.type, count.toFixed(2));
+        localStorage.setItem("Wallet_" + this.type, count.toString());
     }
 
     public tryRemove(count: number): boolean {
@@ -33,7 +33,9 @@ class Wallet {
     }
 }
 
+// The diffrent types of numbers we store
 const ScrapWallet = new Wallet("Scrap");
 const PickaxeWallet = new Wallet("Pickaxe");
+const ScavengerWallet = new Wallet("Scavenger");
 
-export { ScrapWallet, PickaxeWallet }
+export { ScrapWallet, PickaxeWallet, ScavengerWallet }

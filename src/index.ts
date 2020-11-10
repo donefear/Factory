@@ -1,6 +1,8 @@
 import "./index.css";
 import { ScrapWallet, PickaxeWallet } from "./Wallet";
 import { ManualLabor } from "./ManualLabor";
+import { GameComponent } from "./GameComponent";
+import { ScavengerGameComponent } from "./Components/ScavengerGameComponent";
 
 const manualLabor = new ManualLabor();
 manualLabor.updateInterface = () => UpdateInfo();
@@ -23,14 +25,37 @@ function UpdateInfo() {
     }
 }
 
+// Components. What runs every game loop!
+const gameComponents: GameComponent[] = [
+    new ScavengerGameComponent()
+];
+
+let gameLoopLastTime = new Date().getTime();
+
 const gameLoop = function () {
+    let doUpdateInterface = false;
+    const gameLoopCurrentTime = new Date().getTime();
+    const milisecondsElapsed = gameLoopCurrentTime - gameLoopLastTime;
+
     try {
-        UpdateInfo();
+        for (const gameComponent of gameComponents) {
+            const result = gameComponent.run(milisecondsElapsed);
+            if (result.UpdateInterface) {
+                doUpdateInterface = true;
+            }
+        }
+
+        if (doUpdateInterface) {
+            UpdateInfo();
+        }
     } finally {
-        setTimeout(gameLoop, 1000);
+        gameLoopLastTime = gameLoopCurrentTime;
+        setTimeout(gameLoop, 500);
     }
 }
+
 gameLoop();
+UpdateInfo();
 
 
 

@@ -1,4 +1,4 @@
-import { ScrapWallet, PickaxeWallet } from "./Wallet";
+import { ScrapWallet, PickaxeWallet, ScavengerWallet } from "./Wallet";
 
 export class ManualLabor {
     public updateInterface?: () => void;
@@ -6,6 +6,7 @@ export class ManualLabor {
     constructor() {
         document.getElementById("PlayerGather").addEventListener("click", () => this.onClickPlayerGather());
         document.getElementById("BuyPick").addEventListener("click", () => this.onClickBuyPickaxe());
+        document.getElementById("RESET").addEventListener("click", () => this.RESET());
     }
 
     public onClickPlayerGather(): void {
@@ -25,4 +26,14 @@ export class ManualLabor {
             }
         }
     }
+
+    public RESET(): void {
+        localStorage.clear();
+        PickaxeWallet.add(500);
+        ScavengerWallet.add(98);
+        if (this.updateInterface) {
+            this.updateInterface();
+        }
+    }
+
 }

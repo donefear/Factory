@@ -13,8 +13,10 @@ export class ScavengerGameComponent implements GameComponent {
     }
 
     run(milisecondsElapsed: number): ComponentResult {
-        const scavengers = ScavengerWallet.get();
-        ScrapWallet.add(milisecondsElapsed / 1000 * scavengers);
+        if(ScavengerWallet.get() != 0){
+            const scavengers = ScavengerWallet.get();
+            ScrapWallet.add(milisecondsElapsed / 1000 * scavengers);
+        }
 
         return {
             UpdateInterface: true

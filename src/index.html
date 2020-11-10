@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html>
-
+<style>
+	#metal{
+		width: 100%;
+		padding: 50px 0;
+		margin-top: 20px;
+	}
+</style>
 <head>
 	<meta charset="utf-8" />
 	<title><%= htmlWebpackPlugin.options.title %></title>
@@ -9,11 +15,12 @@
 </head>
 
 <body>
+	<button class="btn btn-primary" id="RESET">reset</button>
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-12">
 				<div class="border my-2 p-2 bg-grey">
-					Scrap: <span id="BankAccountCount"></span> | Pickaxes: <span id="Pickaxes"></span>
+					Scrap: <span id="BankAccountCount"></span> | Pickaxes: <span id="Pickaxes"></span> | Scavengers: <span id="Scavenger"></span>
 				</div>
 			</div>
 		</div>
@@ -22,6 +29,18 @@
 				<button class="btn btn-primary" id="PlayerGather">Gather scrap</button>
 				<button class="btn btn-primary" id="BuyPick">Buy pickaxe</button>
 				<button class="btn btn-primary" id="HireScavenger">Hire scavenger</button>
+			</div>
+		</div>
+		<div class="row", id="metal">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="border my-2 p-2 bg-grey">
+						Metal: <span id="Metal"></span> | Foundry: <span id="Foundry"></span>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<button class="btn btn-primary" id="BuyFoundry">Buy foundry</button>
 			</div>
 		</div>
 	</div>

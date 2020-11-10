@@ -1,3 +1,5 @@
+import { walkUpBindingElementsAndPatterns } from "../node_modules/typescript/lib/typescript";
+
 class Wallet {
     private readonly type: string;
 
@@ -37,5 +39,7 @@ class Wallet {
 const ScrapWallet = new Wallet("Scrap");
 const PickaxeWallet = new Wallet("Pickaxe");
 const ScavengerWallet = new Wallet("Scavenger");
+const FoundryWallet = new Wallet("Foundry");
+const MetalWallet = new Wallet("Metal");
 
-export { ScrapWallet, PickaxeWallet, ScavengerWallet }
+export { ScrapWallet, PickaxeWallet, ScavengerWallet, FoundryWallet, MetalWallet }

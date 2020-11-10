@@ -1,24 +1,9 @@
-<mxfile host="app.diagrams.net" modified="2020-11-10T20:32:38.575Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.183 Safari/537.36 Edg/86.0.622.63" etag="52CGKwZ8zOboXcoxxcts" version="13.9.3" type="github">
+<mxfile host="app.diagrams.net" modified="2020-11-10T20:32:55.246Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.183 Safari/537.36 Edg/86.0.622.63" etag="9pyI9NaLI21pmrYcOChN" version="13.9.3" type="github">
   <diagram id="HQGqdZTccVAfWuXQE6w2" name="Page-1">
     <mxGraphModel dx="2249" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="1">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="bEaCugGvIIwN0P2G-kR2-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="bEaCugGvIIwN0P2G-kR2-2" target="bEaCugGvIIwN0P2G-kR2-4" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="bEaCugGvIIwN0P2G-kR2-2" value="klick&lt;br&gt;+1 scrap" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="40" y="180" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="bEaCugGvIIwN0P2G-kR2-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="bEaCugGvIIwN0P2G-kR2-3" target="bEaCugGvIIwN0P2G-kR2-4" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="bEaCugGvIIwN0P2G-kR2-3" value="pickaxe&lt;br&gt;cost : 100 scrap" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="320" y="180" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="bEaCugGvIIwN0P2G-kR2-4" value="klick&lt;br&gt;+2" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="180" y="280" width="120" height="60" as="geometry" />
-        </mxCell>
         <mxCell id="bEaCugGvIIwN0P2G-kR2-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="bEaCugGvIIwN0P2G-kR2-7" target="bEaCugGvIIwN0P2G-kR2-17" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
@@ -37,14 +22,8 @@
         <mxCell id="bEaCugGvIIwN0P2G-kR2-9" value="robots&lt;br&gt;" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="-120" y="560" width="120" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="bEaCugGvIIwN0P2G-kR2-10" value="scavengers&lt;br&gt;+1/s scrap" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="320" y="400" width="120" height="60" as="geometry" />
-        </mxCell>
         <mxCell id="bEaCugGvIIwN0P2G-kR2-11" value="pickaxe" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="-480" y="160" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="bEaCugGvIIwN0P2G-kR2-12" value="klick&lt;br&gt;" style="shape=internalStorage;whiteSpace=wrap;html=1;backgroundOutline=1;" parent="1" vertex="1">
-          <mxGeometry x="640" y="280" width="150" height="350" as="geometry" />
         </mxCell>
         <mxCell id="bEaCugGvIIwN0P2G-kR2-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="bEaCugGvIIwN0P2G-kR2-17" target="bEaCugGvIIwN0P2G-kR2-11" edge="1">
           <mxGeometry relative="1" as="geometry" />

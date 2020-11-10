@@ -1,62 +1,29 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8"/>
-    <title><%= htmlWebpackPlugin.options.title %></title>
-  </head>
-  <body>
-      <div>
-		  <h1>Resources :</h1>
-          Scrap : <span id="BankAccountCount"></span>
-	  </div>
-	  <div>
-		<button id="PlayerGather">Gather scrap</button>
-	  </div>
-	  <div>Upgrades:
-		  Pickaxes : <span id="Pickaxes"></span>
-		<button id="BuyPick">Buy pickaxe</button>
-	  </div>
-  </body>
-</html> 
 
-<!-- 
-<!DOCTYPE html>
-<html lang="en">
 <head>
-	<meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-	<link rel="canonical" href="https://html5-templates.com/" />
-	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<script src="src/script.js"></script>	
-	<link rel="stylesheet" type="text/css" href="src/style.css" />
-    <title><%= htmlWebpackPlugin.options.title %></title>
+	<meta charset="utf-8" />
+	<title><%= htmlWebpackPlugin.options.title %></title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+		integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 </head>
+
 <body>
-	<div id="desktop">
-		<div class="window" data-title="Resources">
-			Scrap : <span id="BankAccountCount"></span>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="border my-2 p-2 bg-grey">
+					Scrap: <span id="BankAccountCount"></span> | Pickaxes: <span id="Pickaxes"></span>
+				</div>
+			</div>
 		</div>
-		<div class="window" data-title="Second">
-			Second Window
+		<div class="row">
+			<div class="col-md-3">
+				<button class="btn btn-primary" id="PlayerGather">Gather scrap</button>
+				<button class="btn btn-primary" id="BuyPick">Buy pickaxe</button>
+			</div>
 		</div>
-		<div class="window closed" data-title="Third">
-			Third window starts closed
-		</div>
-		
-		<div id="taskbar">		
-		</div>
-		
-		<div id="icons">
-			<a class="openWindow" data-id="0">Resources</a>
-			<a class="openWindow" data-id="1">Open second</a>
-			<a class="openWindow" data-id="2">Open third</a>
-		</div>
-		<a href="https://html5-templates.com/" rel="nofollow" target="_blank" id="templateLink">&copy; HTML5-Templates.com</a>	
-		You can use this template freely if you leave a visible link to HTML5-Templates.com
 	</div>
 </body>
 
-</html>  -->
+</html>

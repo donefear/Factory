@@ -1,3 +1,4 @@
+import "./index.css";
 import { ScrapWallet, PickaxeWallet } from "./Wallet";
 import { ManualLabor } from "./ManualLabor";
 

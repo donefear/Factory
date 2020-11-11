@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
 <style>
-	#metal{
+	#metal {
 		width: 100%;
 		padding: 50px 0;
 		margin-top: 20px;
 	}
 </style>
+<script src="https://kit.fontawesome.com/5703cb40f7.js" crossorigin="anonymous"></script>
+
 <head>
 	<meta charset="utf-8" />
 	<title><%= htmlWebpackPlugin.options.title %></title>
@@ -15,35 +17,51 @@
 </head>
 
 <body>
-	<button class="btn btn-primary" id="RESET">reset</button>
+	<p></p>
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="border my-2 p-2 bg-grey">
-					Scrap: <span id="BankAccountCount"></span> | Pickaxes: <span id="Pickaxes"></span> | Scavengers: <span id="Scavenger"></span>
-				</div>
+				<p><button class="btn btn-primary" id="RESET">reset</button></p>
+				<p><button class="btn btn-primary">Extra info</button></p>
+				<table border="0.1" style="border-collapse: collapse; width: 100%;">
+					<tbody>
+						<tr>
+							<td style="width: 5%;"><i class="fas fa-cogs"></i>Scrap:</td>
+							<td style="width: 5%;"><i class="fas fa-tools"></i>Tools:</td>
+							<td style="width: 5%;">Scavengers:</td>
+							<td style="width: 5%;">ScavengerBackpack:</td>
+						</tr>
+						<tr>
+							<td style="width: 5%;"><span id="BankAccountCount">0</span></td>
+							<td style="width: 5%;"><span id="Pickaxes">0</span></td>
+							<td style="width: 5%;"><span id="Scavenger">0</span></td>
+							<td style="width: 5%;"><span id="Backpack">0</span></td>
+						</tr>
+						<tr id="INFO">
+							<td style="width: 5%;"></td>
+							<td style="width: 5%;"></td>
+							<td style="width: 5%;"></td>
+							<td style="width: 5%;"></td>
+						</tr>
+					</tbody>
+				</table>
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-md-12">
-				<button class="btn btn-primary" id="PlayerGather">Gather scrap</button>
-				<button class="btn btn-primary" id="BuyPick">Buy pickaxe</button>
-				<button class="btn btn-primary" id="HireScavenger">Hire scavenger</button>
-			</div>
+			<div class="col-md-12"><button class="btn btn-primary" id="PlayerGather">Gather <i class="fas fa-cogs"></i>scrap</button> <button
+					class="btn btn-primary" id="BuyPick">Buy tools<br />cost:100<i class="fas fa-cogs"></i></button> <button
+					class="btn btn-primary" id="HireScavenger">Hire scavenger<br />cost:500<i class="fas fa-cogs"></i></button> <button
+					class="btn btn-primary" id="BuyBackpack">Buy scavenger a backpack<br />cost:500<i class="fas fa-cogs"></i></button></div>
 		</div>
-		<div class="row", id="metal">
+		<div class="row" id="metal">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="border my-2 p-2 bg-grey">
-						Metal: <span id="Metal"></span> | Foundry: <span id="Foundry"></span>
-					</div>
+					<div class="border my-2 p-2 bg-grey">Metal: <span id="Metal"></span> | Foundry: <span
+							id="Foundry"></span></div>
 				</div>
 			</div>
-			<div class="col-md-12">
-				<button class="btn btn-primary" id="BuyFoundry">Buy foundry</button>
+			<div class="col-md-12"><button class="btn btn-primary" id="BuyFoundry">Buy foundry<br />cost:10,000<i class="fas fa-cogs"></i></button>
 			</div>
 		</div>
 	</div>
 </body>
-
-</html>

@@ -1,5 +1,5 @@
 import "./index.css";
-import { ScrapWallet, PickaxeWallet, ScavengerWallet, MetalWallet, FoundryWallet } from "./Wallet";
+import { ScrapWallet, PickaxeWallet, ScavengerWallet, MetalWallet, FoundryWallet, BackpackWallet } from "./Wallet";
 import { ManualLabor } from "./ManualLabor";
 import { GameComponent } from "./GameComponent";
 import { ScavengerGameComponent } from "./Components/ScavengerGameComponent";
@@ -18,11 +18,11 @@ function UpdateInfo() {
     const backAccountCountSpan = document.getElementById("BankAccountCount");
     const PickaxeCountSpan = document.getElementById("Pickaxes");
     const ScavengerCountSpan = document.getElementById("Scavenger");
+    const BackpackCountSpan = document.getElementById("Backpack");
     const FoundryCountSpan = document.getElementById("Foundry");
     const MetalCountSpan = document.getElementById("Metal");
     if (backAccountCountSpan instanceof HTMLSpanElement) {
-        backAccountCountSpan.textContent = ScrapWallet.get().toFixed(2);
-
+        backAccountCountSpan.textContent = Intl.NumberFormat().format(ScrapWallet.get());
     }
     if (PickaxeCountSpan instanceof HTMLSpanElement) {
         PickaxeCountSpan.textContent = PickaxeWallet.get().toString();
@@ -30,11 +30,14 @@ function UpdateInfo() {
     if (ScavengerCountSpan instanceof HTMLSpanElement) {
         ScavengerCountSpan.textContent = ScavengerWallet.get().toString();
     }
+    if (BackpackCountSpan instanceof HTMLSpanElement) {
+        BackpackCountSpan.textContent = BackpackWallet.get().toString();
+    }
     if (FoundryCountSpan instanceof HTMLSpanElement) {
         FoundryCountSpan.textContent = FoundryWallet.get().toString();
     }
     if (MetalCountSpan instanceof HTMLSpanElement) {
-        MetalCountSpan.textContent = MetalWallet.get().toString();
+        MetalCountSpan.textContent = Intl.NumberFormat().format(MetalWallet.get());
     }
 }
 

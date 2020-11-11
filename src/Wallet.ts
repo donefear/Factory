@@ -39,7 +39,8 @@ class Wallet {
 const ScrapWallet = new Wallet("Scrap");
 const PickaxeWallet = new Wallet("Pickaxe");
 const ScavengerWallet = new Wallet("Scavenger");
+const BackpackWallet = new Wallet("Backpack");
 const FoundryWallet = new Wallet("Foundry");
 const MetalWallet = new Wallet("Metal");
 
-export { ScrapWallet, PickaxeWallet, ScavengerWallet, FoundryWallet, MetalWallet }
+export { ScrapWallet, PickaxeWallet, ScavengerWallet, FoundryWallet, MetalWallet, BackpackWallet }

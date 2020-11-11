@@ -13,11 +13,21 @@ export class FoundryGameComponent implements GameComponent {
     }
 
     run(milisecondsElapsed: number): ComponentResult {
-        if(FoundryWallet.get() != 0){
+        // console.log("foundry = "+FoundryWallet.get());
+        if(FoundryWallet.get() >=1 ){
+            const scrap = ScrapWallet.get();
             const foundry = FoundryWallet.get();
-            MetalWallet.add(milisecondsElapsed / 1000 * foundry);
+            const Metal = foundry/ 1000 * milisecondsElapsed;     
+            // console.log("XMetal: "+XMetal);
+            const convertedScrap =  (ScrapWallet.get() - 500) / 1000;
+            // console.log("usablescrap: "+convertedScrap);
+            const usableScrap = convertedScrap*100;
+            if(ScrapWallet.tryRemove(usableScrap)){
+                if(Math.min(Math.floor(Metal), usableScrap) >= 0){
+                    MetalWallet.add(Math.min(Math.floor(Metal), convertedScrap));
+                }
+            }
         }
-
         return {
             UpdateInterface: true
         }

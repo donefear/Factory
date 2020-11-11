@@ -14,8 +14,8 @@ export class FoundryGameComponent implements GameComponent {
 
     run(milisecondsElapsed: number): ComponentResult {
         // console.log("foundry = "+FoundryWallet.get());
+        let GainedMetal = 0;
         if(FoundryWallet.get() >=1 ){
-            const scrap = ScrapWallet.get();
             const foundry = FoundryWallet.get();
             const Metal = foundry/ 1000 * milisecondsElapsed;     
             // console.log("XMetal: "+XMetal);
@@ -24,7 +24,8 @@ export class FoundryGameComponent implements GameComponent {
             const usableScrap = convertedScrap*100;
             if(ScrapWallet.tryRemove(usableScrap)){
                 if(Math.min(Math.floor(Metal), usableScrap) >= 0){
-                    MetalWallet.add(Math.min(Math.floor(Metal), convertedScrap));
+                    GainedMetal = Math.min(Math.floor(Metal), convertedScrap);
+                    MetalWallet.add(GainedMetal);
                 }
             }
         }

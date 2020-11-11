@@ -6,7 +6,7 @@ export class ManualLabor {
     constructor() {
         document.getElementById("PlayerGather").addEventListener("click", () => this.onClickPlayerGather());
         document.getElementById("BuyPick").addEventListener("click", () => this.onClickBuyPickaxe());
-        document.getElementById("RESET").addEventListener("click", () => this.RESET());
+        // document.getElementById("RESET").addEventListener("click", () => this.RESET());
     }
 
     public onClickPlayerGather(): void {

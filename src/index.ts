@@ -15,14 +15,27 @@ document.addEventListener("keydown", (e) => {
 });
 
 function UpdateInfo() {
-    const backAccountCountSpan = document.getElementById("BankAccountCount");
+    const backAccountCountSpan = document.querySelectorAll(".BankAccountCount");
     const PickaxeCountSpan = document.getElementById("Pickaxes");
+    const KlickSecondCountSpan = document.getElementById("KlickSecond");
     const ScavengerCountSpan = document.getElementById("Scavenger");
     const BackpackCountSpan = document.getElementById("Backpack");
+    const ScrapPerSecond = document.getElementById("ScrapPerSecond");
+    const MetalPerSecond = document.getElementById("MetalPerSecond");
     const FoundryCountSpan = document.getElementById("Foundry");
-    const MetalCountSpan = document.getElementById("Metal");
-    if (backAccountCountSpan instanceof HTMLSpanElement) {
-        backAccountCountSpan.textContent = Intl.NumberFormat().format(ScrapWallet.get());
+    const MetalCountSpan = document.querySelectorAll(".Metal");
+    for (const x of backAccountCountSpan) {
+        x.textContent = Intl.NumberFormat().format(ScrapWallet.get());
+    }
+    if (KlickSecondCountSpan instanceof HTMLSpanElement) {
+        const x = PickaxeWallet.get()+1
+        KlickSecondCountSpan.textContent = x.toString();
+    }
+    if (ScrapPerSecond instanceof HTMLSpanElement) {
+        ScrapPerSecond.textContent = (ScavengerWallet.get()*(BackpackWallet.get()*1.5)).toString();
+    }
+    if (MetalPerSecond instanceof HTMLSpanElement) {
+        //NO CLUE !!!!
     }
     if (PickaxeCountSpan instanceof HTMLSpanElement) {
         PickaxeCountSpan.textContent = PickaxeWallet.get().toString();
@@ -36,8 +49,8 @@ function UpdateInfo() {
     if (FoundryCountSpan instanceof HTMLSpanElement) {
         FoundryCountSpan.textContent = FoundryWallet.get().toString();
     }
-    if (MetalCountSpan instanceof HTMLSpanElement) {
-        MetalCountSpan.textContent = Intl.NumberFormat().format(MetalWallet.get());
+    for (const x of MetalCountSpan) {
+        x.textContent = Intl.NumberFormat().format(MetalWallet.get());
     }
 }
 
@@ -45,7 +58,7 @@ function UpdateInfo() {
 
 //hide metal production till atleast 100scrap/s income(100 scavengers)
 function checkScrapIncome() {
-    const x = document.getElementById("metal");
+    const x = document.getElementById("metalhide");
     if (ScavengerWallet.get() >= 100){
         x.style.display = "block";
     }else {

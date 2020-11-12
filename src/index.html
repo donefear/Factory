@@ -4,6 +4,12 @@
 	#metalhide {
 	}
 </style>
+<!-- <style>
+	body {
+	  /* background-image: url('src/BackGroundImg.jpg'); */
+	  background-color: rgb(45, 46, 56);
+	}
+</style> -->
 <script src="https://kit.fontawesome.com/5703cb40f7.js" crossorigin="anonymous"></script>
 
 <head>
@@ -13,19 +19,19 @@
 		integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 </head>
 
-<body>
+<body style="background-color: rgb(48, 51, 48);">
 	<!-- Scrap production -->
 	<div class="container-fluid">
-		<div class="row row-cols-1 row-cols-md-2 row-cols-lg-5">
+		<div class="row row-cols-1 row-cols-md-2 row-cols-lg-5 ">
 			<!-- card 1  -->
 			<div class="col mb-2">
-				<div class="card">
+				<div class="card bg-transparent">
 					<div class="card-header">
 						<i class="fas fa-cogs"></i> Scrap
 						<span class="BankAccountCount"></span>
 					</div>
 					<div class="card-body">
-						<p class="card-text">
+						<p class="card-text  ">
 							<dl>
 								<dt>Total Scrap</dt>
 								<dd><span class="BankAccountCount"></span></dd>
@@ -37,7 +43,7 @@
 						</p>
 					</div>
 					<div class="card-footer text-muted">
-						<div class="btn-group-vertical">
+						<div class="btn-group-vertical  ">
 							<button class="btn btn-primary" id="PlayerGather">
 								Gather <i class="fas fa-cogs"></i> scrap
 							</button>				
@@ -50,7 +56,7 @@
 			</div>
 			<!-- card 2 -->
 			<div class="col mb-2">
-				<div class="card">
+				<div class="card bg-transparent">
 					<div class="card-header">
 						Scavengers
 					</div>
@@ -83,7 +89,7 @@
 <!-- Metal production (hides if scavengers < 100 ) -->
 		<div class="row row-cols-1 row-cols-md-2 row-cols-lg-5" id="metalhide">
 			<div class="col mb-2">
-				<div class="card">
+				<div class="card bg-transparent">
 					<div class="card-header">
 						<i class="fas fa-cogs"></i> Metal
 						<span class="Metal"></span>

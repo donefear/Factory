@@ -32,7 +32,7 @@ function UpdateInfo() {
         KlickSecondCountSpan.textContent = x.toString();
     }
     if (ScrapPerSecond instanceof HTMLSpanElement) {
-        ScrapPerSecond.textContent = (ScavengerWallet.get()*(BackpackWallet.get()*1.5)).toString();
+        ScrapPerSecond.textContent = (ScavengerWallet.get()*((BackpackWallet.get()||1)*1.5)).toString();
     }
     if (MetalPerSecond instanceof HTMLSpanElement) {
         //NO CLUE !!!!

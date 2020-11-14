@@ -8,13 +8,17 @@ export class ScavengerGameComponent implements GameComponent {
     }
 
     onClickHireScavenger() {
-        if (ScrapWallet.tryRemove(500)) {
+        const BaseCost = 500;    
+        const Cost = BaseCost*(ScavengerWallet.get()*0.15 || 1);
+        if (ScrapWallet.tryRemove(Cost)) {
             ScavengerWallet.add();
         }
     }
 
     onClickBuyBackpack() {
         if(BackpackWallet.get() < ScavengerWallet.get()){
+            const BaseCost = 500;    
+            const Cost = BaseCost*(BackpackWallet.get()*0.15 || 1);
             if (ScrapWallet.tryRemove(500)) {
                 BackpackWallet.add();
             }

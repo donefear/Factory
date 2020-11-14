@@ -28,11 +28,11 @@ function UpdateInfo() {
         x.textContent = Intl.NumberFormat().format(ScrapWallet.get());
     }
     if (KlickSecondCountSpan instanceof HTMLSpanElement) {
-        const x = PickaxeWallet.get()+1
+        const x = Intl.NumberFormat().format(PickaxeWallet.get()*1.5 + 1);
         KlickSecondCountSpan.textContent = x.toString();
     }
     if (ScrapPerSecond instanceof HTMLSpanElement) {
-        ScrapPerSecond.textContent = (ScavengerWallet.get()*((BackpackWallet.get()||1)*1.5)).toString();
+        ScrapPerSecond.textContent = Intl.NumberFormat().format(ScavengerWallet.get()*((BackpackWallet.get()||1)*1.5));
     }
     if (MetalPerSecond instanceof HTMLSpanElement) {
         //NO CLUE !!!!

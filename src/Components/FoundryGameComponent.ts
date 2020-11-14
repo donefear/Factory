@@ -6,9 +6,18 @@ export class FoundryGameComponent implements GameComponent {
         document.getElementById("BuyFoundry").addEventListener("click", () => this.onClickBuyFoundry())
     }
 
+    // Base Cost = 
+
+    
+
     onClickBuyFoundry() {
-        if (ScrapWallet.tryRemove(10000)) {
+
+        const BaseCost = 10000;    
+        const Cost = BaseCost*(FoundryWallet.get()*0.15 || 1);
+
+        if (ScrapWallet.tryRemove(Cost)) {
             FoundryWallet.add();
+            console.log(Cost);
         }
     }
 
@@ -17,15 +26,15 @@ export class FoundryGameComponent implements GameComponent {
         let GainedMetal = 0;
         if(FoundryWallet.get() >=1 ){
             const foundry = FoundryWallet.get();
-            const Metal = foundry/ 1000 * milisecondsElapsed;     
+            const Metal = foundry/ 500 * milisecondsElapsed;     
             // console.log("XMetal: "+XMetal);
             const convertedScrap =  (ScrapWallet.get() - 500) / 1000;
             // console.log("usablescrap: "+convertedScrap);
-            const usableScrap = convertedScrap*100;
-            if(ScrapWallet.tryRemove(usableScrap)){
-                if(Math.min(Math.floor(Metal), usableScrap) >= 0){
-                    GainedMetal = Math.min(Math.floor(Metal), convertedScrap);
-                    MetalWallet.add(GainedMetal);
+            const usableScrap = convertedScrap*50;
+            GainedMetal = Math.min(Math.floor(Metal), convertedScrap);
+            if(ScrapWallet.tryRemove(GainedMetal*500)){
+                if(Math.min(Math.floor(Metal), usableScrap) >= 0){                    
+                    MetalWallet.add(GainedMetal/2);
                 }
             }
         }

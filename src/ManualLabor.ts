@@ -10,7 +10,7 @@ export class ManualLabor {
     }
 
     public onClickPlayerGather(): void {
-        ScrapWallet.add(PickaxeWallet.get() + 1);
+        ScrapWallet.add(PickaxeWallet.get()*1.5 + 1);
         
         if (this.updateInterface) {
             this.updateInterface();

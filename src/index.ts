@@ -16,16 +16,22 @@ document.addEventListener("keydown", (e) => {
 
 function UpdateInfo() {
     const backAccountCountSpan = document.querySelectorAll(".BankAccountCount");
+    const MetalCountSpan = document.querySelectorAll(".Metal");
     const PickaxeCountSpan = document.getElementById("Pickaxes");
+    const PickaxeCostSpan = document.getElementById("Cost_Pickaxes");
     const KlickSecondCountSpan = document.getElementById("KlickSecond");
     const ScavengerCountSpan = document.getElementById("Scavenger");
+    const ScavengerCostSpan = document.getElementById("Cost_Scavenger");
     const BackpackCountSpan = document.getElementById("Backpack");
+    const BackpackCostSpan = document.getElementById("Cost_Backpack");
     const ScrapPerSecond = document.getElementById("ScrapPerSecond");
-    const MetalPerSecond = document.getElementById("MetalPerSecond");
     const FoundryCountSpan = document.getElementById("Foundry");
-    const MetalCountSpan = document.querySelectorAll(".Metal");
+    const FoundryCostSpan = document.getElementById("Cost_Foundry");
     for (const x of backAccountCountSpan) {
         x.textContent = Intl.NumberFormat().format(ScrapWallet.get());
+    }
+    for (const x of MetalCountSpan) {
+        x.textContent = Intl.NumberFormat().format(MetalWallet.get());
     }
     if (KlickSecondCountSpan instanceof HTMLSpanElement) {
         const x = Intl.NumberFormat().format(PickaxeWallet.get()*1.5 + 1);
@@ -33,9 +39,6 @@ function UpdateInfo() {
     }
     if (ScrapPerSecond instanceof HTMLSpanElement) {
         ScrapPerSecond.textContent = Intl.NumberFormat().format(ScavengerWallet.get()*((BackpackWallet.get()||1)*1.5));
-    }
-    if (MetalPerSecond instanceof HTMLSpanElement) {
-        //NO CLUE !!!!
     }
     if (PickaxeCountSpan instanceof HTMLSpanElement) {
         PickaxeCountSpan.textContent = PickaxeWallet.get().toString();
@@ -49,8 +52,14 @@ function UpdateInfo() {
     if (FoundryCountSpan instanceof HTMLSpanElement) {
         FoundryCountSpan.textContent = FoundryWallet.get().toString();
     }
-    for (const x of MetalCountSpan) {
-        x.textContent = Intl.NumberFormat().format(MetalWallet.get());
+    if (BackpackCostSpan instanceof HTMLSpanElement) {
+        
+    }
+    if (ScavengerCostSpan instanceof HTMLSpanElement) {
+        
+    }
+    if (PickaxeCostSpan instanceof HTMLSpanElement) {
+        
     }
 }
 

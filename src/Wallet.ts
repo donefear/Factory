@@ -42,5 +42,17 @@ const ScavengerWallet = new Wallet("Scavenger");
 const BackpackWallet = new Wallet("Backpack");
 const FoundryWallet = new Wallet("Foundry");
 const MetalWallet = new Wallet("Metal");
+const PlasticWallet = new Wallet("Plastic");
+const RecyclerWallet = new Wallet("Recycler");
+const SmelterWallet = new Wallet("Smelter");
+const DrillWallet = new Wallet("Drill");
+const DrillHeadWallet = new Wallet("DrillHead");
+const CrystalWallet = new Wallet("Crystal");
 
-export { ScrapWallet, PickaxeWallet, ScavengerWallet, FoundryWallet, MetalWallet, BackpackWallet }
+
+
+export { 
+    ScrapWallet, PickaxeWallet, ScavengerWallet, FoundryWallet, 
+    MetalWallet, BackpackWallet, PlasticWallet, RecyclerWallet, 
+    SmelterWallet, DrillHeadWallet, CrystalWallet, DrillWallet 
+}

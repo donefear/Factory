@@ -1,6 +1,10 @@
 import { ComponentResult, GameComponent } from "../GameComponent";
 import { ScavengerWallet, ScrapWallet, BackpackWallet } from "../Wallet";
 
+const BaseCost = 500;    
+const BackpackCost = BaseCost*(BackpackWallet.get()*0.15 || 1);
+const ScavengerCost = BaseCost*(ScavengerWallet.get()*0.15 || 1);
+
 export class ScavengerGameComponent implements GameComponent {
     constructor() {
         document.getElementById("HireScavenger").addEventListener("click", () => this.onClickHireScavenger())
@@ -17,12 +21,22 @@ export class ScavengerGameComponent implements GameComponent {
 
     onClickBuyBackpack() {
         if(BackpackWallet.get() < ScavengerWallet.get()){
-            const BaseCost = 500;    
-            const Cost = BaseCost*(BackpackWallet.get()*0.15 || 1);
             if (ScrapWallet.tryRemove(500)) {
                 BackpackWallet.add();
             }
         }        
+    }
+
+    BackpackCost(){
+        return{
+            BackpackCost
+        }
+    }
+
+    ScavengerCost(){
+        return{
+            ScavengerCost
+        }
     }
 
     run(milisecondsElapsed: number): ComponentResult {

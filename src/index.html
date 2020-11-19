@@ -2,6 +2,10 @@
 <html>
 <style>
 	#metalhide {
+		
+	}
+	#plastichide {
+		
 	}
 </style>
 <!-- <style>
@@ -20,14 +24,15 @@
 </head>
 
 <body style="background-color: rgb(48, 51, 48);">
-	<!-- Scrap production -->
+
 	<div class="container-fluid">
+			<!-- Scrap production -->
 		<div class="row row-cols-1 row-cols-md-2 row-cols-lg-5 ">
 			<!-- card 1  -->
 			<div class="col mb-2">
 				<div class="card bg-transparent">
 					<div class="card-header">
-						<i class="fas fa-cogs"></i> Scrap
+						<img src="src/Icon/Scrap.png" height='28' width='26'> Scrap
 						<span class="BankAccountCount"></span>
 					</div>
 					<div class="card-body">
@@ -36,7 +41,7 @@
 								<dt>Total Scrap</dt>
 								<dd><span class="BankAccountCount"></span></dd>
 								<dt>Total amount of tools</dt>
-								<dd><span id="Pickaxes"></span></dd>
+								<dd></dd>
 								<dt>Scrap/klick</dt>
 								<dd><span id="KlickSecond"></span></dd>
 							</dl>		
@@ -45,10 +50,10 @@
 					<div class="card-footer text-muted">
 						<div class="btn-group-vertical  ">
 							<button class="btn btn-primary" id="PlayerGather">
-								Gather <i class="fas fa-cogs"></i> scrap
+								Gather <img src="src/Icon/Scrap.png" height='28' width='26'> scrap
 							</button>				
 							<button class="btn btn-primary" id="BuyPick">
-								Buy	tools (<span id="Cost_Pickaxe"></span><i class="fas fa-cogs"></i>)
+								Buy	tools (<span id="Cost_Pickaxe"></span><img src="src/Icon/Scrap.png" height='28' width='26'>)
 							</button> 
 						  </div>						
 					</div>
@@ -75,10 +80,10 @@
 					<div class="card-footer text-muted">
 						<div class="btn-group-vertical">
 							<button class="btn btn-primary" id="HireScavenger">
-								Hire Scavenger (<span id="Cost_Scavenger"></span> <i class="fas fa-cogs"></i>)
+								Hire Scavenger (<span id="Cost_Scavenger"></span> <img src="src/Icon/Scrap.png" height='28' width='26'>)
 							</button>				
 							<button class="btn btn-primary" id="BuyBackpack">
-								Buy	ScavengerBackpack (<span id="Cost_ScavengerBackpack"></span> <i class="fas fa-cogs"></i>)
+								Buy	ScavengerBackpack (<span id="Cost_ScavengerBackpack"></span> <img src="src/Icon/Scrap.png" height='28' width='26'>)
 							</button> 
 						  </div>						
 					</div>
@@ -87,11 +92,12 @@
 		</div>
 
 <!-- Metal production (hides if scavengers < 100 ) -->
-		<div class="row row-cols-1 row-cols-md-2 row-cols-lg-5" id="metalhide">
+		<div class="row row-cols-1 row-cols-md-2 row-cols-lg-5" >
+			<!-- Metal -->
 			<div class="col mb-2">
 				<div class="card bg-transparent">
 					<div class="card-header">
-						<i class="fas fa-cogs"></i> Metal
+						<img src="src/Icon/Metal.png" height='28' width='26'> Metal
 						<span class="Metal"></span>
 					</div>
 					<div class="card-body">
@@ -101,21 +107,58 @@
 							<dd><span class="Metal"></span></dd>
 							<dt>Total amount of foundries</dt>
 							<dd><span id="Foundry"></span></dd>
-							<dt>Metal/Second</dt>
-							<dd><span class="MetalPerSecond"></span></dd>
+							<dt></dt>
+							<dd></dd>
 						</dl>
 						</p>
 					</div>
 					<div class="card-footer text-muted">
-						<div class="btn-group-vertical">
+						<button class="btn btn-primary" id="FoundryToggle">
+							<img src ="src/Icon/OFF.png" height="40" width="75" id="FoundryToggleIMG">
+						</button>	
+						<div class="btn-group-vertical" id="metalhide">
 							<button class="btn btn-primary" id="BuyFoundry">
-								Buy foundry (<span id="Cost_Foundry"></span> <i class="fas fa-cogs"></i>)
+								Buy foundry (<span id="Cost_Foundry"></span> <img src="src/Icon/Scrap.png" height='28' width='26'>)
+							</button>							
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- PLASTIC -->
+			<div class="col mb-2">
+				<div class="card bg-transparent">
+					<div class="card-header">
+						<img src="src/Icon/Plastic.png" height='28' width='26'> Plastic
+						<span class="Plastic"></span>
+					</div>
+					<div class="card-body">
+						<p class="card-text">
+						<dl>
+							<dt>Total Plastic</dt>
+							<dd><span class="Plastic"></span></dd>
+							<dt>Total amount of recyclers</dt>
+							<dd><span id="Recycler"></span></dd>
+							<dt>Total amount of smelters</dt>
+							<dd><span id="Smelter"></span></dd>
+						</dl>
+						</p>
+					</div>
+					<div class="card-footer text-muted">
+						<div class="btn-group-vertical" id="plastichide">
+							<button class="btn btn-primary" id="BuyRecycler">
+								Buy Recycler (<span id="Cost_Recycler"></span> <img src="src/Icon/Scrap.png" height='28' width='26'>)
+							</button>
+							<button class="btn btn-primary" id="BuySmelter">
+								Buy Recycler (<span id="Cost_Smelter"></span> <img src="src/Icon/Scrap.png" height='28' width='26'>)
 							</button>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>	
+<!-- Plastic -->
+		
+
 	</div>
 </body>
 </html>

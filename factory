@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-11-19T10:08:32.699Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36 Edg/86.0.622.69" etag="mMhF0gIzfAweXZo8OlhF" version="13.9.8" type="github">
+<mxfile host="app.diagrams.net" modified="2020-11-19T10:11:54.585Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36 Edg/86.0.622.69" etag="SHozoQUnxfVqQCs_NvlR" version="13.9.8" type="github">
   <diagram id="HQGqdZTccVAfWuXQE6w2" name="Page-1">
     <mxGraphModel dx="3076" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="1">
       <root>
@@ -96,6 +96,44 @@
         </mxCell>
         <mxCell id="-G6owJ6ogF424_7bxLO5-15" value="robot frame" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="-473" y="530" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="q2S3XFusEiC2400LCA0j-1" value="laser weapons&lt;br&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-1360" y="1080" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="q2S3XFusEiC2400LCA0j-2" value="wariors&lt;br&gt;robots" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-1190" y="1080" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="q2S3XFusEiC2400LCA0j-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="q2S3XFusEiC2400LCA0j-3" target="q2S3XFusEiC2400LCA0j-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="q2S3XFusEiC2400LCA0j-3" value="normal weapons&lt;br&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-1020" y="1090" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="q2S3XFusEiC2400LCA0j-4" value="gunpowder&lt;br&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-1010" y="990" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="q2S3XFusEiC2400LCA0j-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="q2S3XFusEiC2400LCA0j-6" target="q2S3XFusEiC2400LCA0j-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="q2S3XFusEiC2400LCA0j-6" value="crystals&lt;br&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-1130" y="410" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="q2S3XFusEiC2400LCA0j-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="q2S3XFusEiC2400LCA0j-7" target="q2S3XFusEiC2400LCA0j-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="q2S3XFusEiC2400LCA0j-7" value="mine&lt;br&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-947" y="410" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="q2S3XFusEiC2400LCA0j-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="q2S3XFusEiC2400LCA0j-8" target="bEaCugGvIIwN0P2G-kR2-9">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-860" y="700" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="-860" y="730" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="q2S3XFusEiC2400LCA0j-8" value="optics&lt;br&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-947" y="530" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

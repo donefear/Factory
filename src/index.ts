@@ -1,15 +1,18 @@
 import "./index.css";
-import { ScrapWallet, PickaxeWallet, ScavengerWallet, MetalWallet, FoundryWallet, BackpackWallet, PlasticWallet, SmelterWallet, RecyclerWallet } from "./Wallet";
+import { ScrapWallet, PickaxeWallet, ScavengerWallet, MetalWallet, FoundryWallet, RefineryWallet, BackpackWallet, PlasticWallet, SmelterWallet, RecyclerWallet } from "./Wallet";
+import { DrillHeadWallet, DrillWallet, CrystalWallet } from "./Wallet";
 import { ManualLabor } from "./ManualLabor";
 import { GameComponent } from "./GameComponent";
 import { ScavengerGameComponent } from "./Components/ScavengerGameComponent";
 import { FoundryGameComponent } from "./Components/FoundryGameComponent";
 import { PlasticGameComponent } from "./Components/PlasticGameComponent";
+import { CrystalGameComponent } from "./Components/CrystalGameComponent";
 import { isConditionalExpression } from "../node_modules/typescript/lib/typescript";
 
 let foundryGameComponent: FoundryGameComponent;
 let scavengerGameComponent: ScavengerGameComponent;
 let plasticGameComponent: PlasticGameComponent;
+let crystalGameComponent: CrystalGameComponent;
 const manualLabor = new ManualLabor();
 manualLabor.updateInterface = () => UpdateInfo();
 
@@ -22,7 +25,6 @@ document.addEventListener("keydown", (e) => {
 function UpdateInfo() {
     // player klick
     const backAccountCountSpan = document.querySelectorAll(".BankAccountCount");
-    const ScrapPerSecond = document.getElementById("ScrapPerSecond");
     const PickaxeCountSpan = document.getElementById("Pickaxes");
     const PickaxeCostSpan = document.getElementById("Cost_Pickaxe");
     const KlickSecondCountSpan = document.getElementById("KlickSecond");
@@ -32,9 +34,6 @@ function UpdateInfo() {
     if (KlickSecondCountSpan instanceof HTMLSpanElement) {
         const x = Intl.NumberFormat().format(PickaxeWallet.get()*1.5 + 1);
         KlickSecondCountSpan.textContent = x.toString();
-    }
-    if (ScrapPerSecond instanceof HTMLSpanElement) {
-        ScrapPerSecond.textContent = Intl.NumberFormat().format(ScavengerWallet.get()*((BackpackWallet.get()||1)*1.5));
     }
     if (PickaxeCountSpan instanceof HTMLSpanElement) {
         PickaxeCountSpan.textContent = PickaxeWallet.get().toString();
@@ -47,6 +46,8 @@ function UpdateInfo() {
     const BackpackCostSpan = document.getElementById("Cost_ScavengerBackpack");
     const FoundryCountSpan = document.getElementById("Foundry");
     const FoundryCostSpan = document.getElementById("Cost_Foundry");
+    const RefineryCountSpan = document.getElementById("Refinery");
+    const RefineryCostSpan = document.getElementById("Cost_Refinery");
     for (const x of MetalCountSpan) {
         x.textContent = Intl.NumberFormat().format(MetalWallet.get());
     }
@@ -61,6 +62,12 @@ function UpdateInfo() {
     }
     if (FoundryCostSpan instanceof HTMLSpanElement){
         FoundryCostSpan.textContent =  Intl.NumberFormat().format(foundryGameComponent.FoundryCost().Cost);
+    }
+    if (RefineryCountSpan instanceof HTMLSpanElement) {
+        RefineryCountSpan.textContent = RefineryWallet.get().toString();
+    }
+    if (RefineryCostSpan instanceof HTMLSpanElement){
+        RefineryCostSpan.textContent =  Intl.NumberFormat().format(foundryGameComponent.RefineryCost().RefineryCost);
     }
     if (BackpackCostSpan instanceof HTMLSpanElement) {
         BackpackCostSpan.textContent =  Intl.NumberFormat().format(scavengerGameComponent.BackpackCost().BackpackCost);
@@ -94,13 +101,29 @@ function UpdateInfo() {
         SmelterCostSpan.textContent =  Intl.NumberFormat().format(plasticGameComponent.SmelterCost().SmelterCost);
         
     }
-    if (PickaxeCostSpan instanceof HTMLSpanElement) {
-        PickaxeCostSpan.textContent = "100";
-    }
 
     // DeepDrill
-
-    
+    const CrystalCountSpan = document.querySelectorAll(".Crystal");
+    const DeepDrillCountSpan = document.getElementById("Drill");
+    const DeepDrillCostSpan = document.getElementById("Cost_DeepDrill");
+    const DrillHeadCountSpan = document.getElementById("DrillHead");
+    const DrillHeadCostSpan = document.getElementById("Cost_DrillHead");
+    for (const x of CrystalCountSpan) {
+        x.textContent = Intl.NumberFormat().format(CrystalWallet.get());
+    }
+    if (DeepDrillCountSpan instanceof HTMLSpanElement) {
+        DeepDrillCountSpan.textContent = DrillWallet.get().toString();
+    }
+    if (DrillHeadCountSpan instanceof HTMLSpanElement) {
+        DrillHeadCountSpan.textContent = DrillHeadWallet.get().toString();
+    }
+    if (DeepDrillCostSpan instanceof HTMLSpanElement) {
+        DeepDrillCostSpan.textContent =  Intl.NumberFormat().format(crystalGameComponent.DrillCost().DrillCost);
+    }
+    if (DrillHeadCostSpan instanceof HTMLSpanElement) {
+        DrillHeadCostSpan.textContent =  Intl.NumberFormat().format(crystalGameComponent.DrillHeadCost().DrillHeadCost);
+        
+    }   
 
 }
 
@@ -116,15 +139,20 @@ function checkScrapIncome() {
         y.style.display = "none";
     }
 }
+
+
+// Components. What runs every game loop!
 foundryGameComponent = new FoundryGameComponent();
 scavengerGameComponent = new ScavengerGameComponent();
 plasticGameComponent = new PlasticGameComponent();
-// Components. What runs every game loop!
+crystalGameComponent = new CrystalGameComponent();
 const gameComponents: GameComponent[] = [
     scavengerGameComponent,
     foundryGameComponent,
-    plasticGameComponent
+    plasticGameComponent,
+    crystalGameComponent
 ];
+
 
 let gameLoopLastTime = new Date().getTime();
 

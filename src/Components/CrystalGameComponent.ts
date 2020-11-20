@@ -7,7 +7,7 @@ const DrillHeadCost = BaseCost*(DrillHeadWallet.get()*1.15 || 1);
 
 export class CrystalGameComponent implements GameComponent {
     constructor() {
-        document.getElementById("BuyDrill").addEventListener("click", () => this.onClickBuyDrill())
+        document.getElementById("BuyDeepDrill").addEventListener("click", () => this.onClickBuyDrill())
         document.getElementById("BuyDrillHead").addEventListener("click", () => this.onClickBuyDrillHead())
     }
 

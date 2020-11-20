@@ -41,14 +41,19 @@ export class ScavengerGameComponent implements GameComponent {
 
     run(milisecondsElapsed: number): ComponentResult {
         if(ScavengerWallet.get() != 0){
-            let backpack = 1;
             const scavengers = ScavengerWallet.get();
-            if (BackpackWallet.get() != 0){
+            const backpack = BackpackWallet.get();
+            if (backpack != 0){
                 const backpack = BackpackWallet.get();
             }
-            ScrapWallet.add(milisecondsElapsed / 1000 * scavengers * (backpack*1.5));
+            let income = milisecondsElapsed / 1000 * scavengers * (backpack*1.5);
+            ScrapWallet.add(income);
+            const ScrapPerSecond = document.getElementById("ScrapPerSecond");
+            if (ScrapPerSecond instanceof HTMLSpanElement) {
+                ScrapPerSecond.textContent = Intl.NumberFormat().format(income);
+            } 
         }
-
+        
         return {
             UpdateInterface: true
         }

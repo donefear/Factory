@@ -60,15 +60,26 @@ export class PlasticGameComponent implements GameComponent {
     run(milisecondsElapsed: number): ComponentResult {
         if(PlasticRun){
             if(RecyclerWallet.get() >=1){
+                const scrap = ScrapWallet.get();
                 const recycler = RecyclerWallet.get();
-                const GainedPlastic = milisecondsElapsed / 500 * recycler;
+                const usablescrap = scrap / 1000
                 const smelter = SmelterWallet.get();
-                if (GainedPlastic > 0){
-                    if(ScrapWallet.tryRemove(GainedPlastic*500)){
-                        PlasticWallet.add(GainedPlastic*(smelter*0.5))
-                    }
-                    if (PlasticPerSecond instanceof HTMLSpanElement) {
-                        PlasticPerSecond.textContent = Intl.NumberFormat().format(GainedPlastic*2);
+                const GainedPlastic = Math.floor(milisecondsElapsed / 1000 * recycler * ((smelter||1)*1.15));
+                if(scrap>1500){
+                    if(Math.floor(usablescrap)<=GainedPlastic){
+                        if(ScrapWallet.tryRemove(usablescrap*1000)){
+                            PlasticWallet.add(usablescrap)
+                            if (PlasticPerSecond instanceof HTMLSpanElement) {
+                                PlasticPerSecond.textContent = Intl.NumberFormat().format(usablescrap);
+                            } 
+                        }
+                    }else{
+                        if(ScrapWallet.tryRemove(GainedPlastic*1000)){
+                            PlasticWallet.add(GainedPlastic)
+                            if (PlasticPerSecond instanceof HTMLSpanElement) {
+                                PlasticPerSecond.textContent = Intl.NumberFormat().format(GainedPlastic);
+                            } 
+                        }
                     }
                 }
             }
@@ -80,7 +91,7 @@ export class PlasticGameComponent implements GameComponent {
             this.checkButton()            
             if (PlasticPerSecond instanceof HTMLSpanElement) {
                 PlasticPerSecond.textContent = Intl.NumberFormat().format(0);
-            }
+            } 
             return {
                 UpdateInterface: false
             }

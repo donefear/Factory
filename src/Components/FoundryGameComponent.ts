@@ -69,20 +69,23 @@ export class FoundryGameComponent implements GameComponent {
                 const foundry = FoundryWallet.get();
                 const usablescrap = scrap / 1000
                 const refinery = RefineryWallet.get();
-                const GainedMetal = Math.floor(milisecondsElapsed / 1000 * foundry * ((refinery||1)*1.05));
+                const GainedMetal = Math.floor(milisecondsElapsed / 1000 * foundry * ((refinery||1)*1.15));
                 if(scrap>1500){
                     if(Math.floor(usablescrap)<=GainedMetal){
                         if(ScrapWallet.tryRemove(usablescrap*1000)){
-                            MetalWallet.add(GainedMetal)
+                            MetalWallet.add(usablescrap)
+                            if (MetalPerSecond instanceof HTMLSpanElement) {
+                                MetalPerSecond.textContent = Intl.NumberFormat().format(usablescrap);
+                            } 
                         }
                     }else{
                         if(ScrapWallet.tryRemove(GainedMetal*1000)){
                             MetalWallet.add(GainedMetal)
+                            if (MetalPerSecond instanceof HTMLSpanElement) {
+                                MetalPerSecond.textContent = Intl.NumberFormat().format(GainedMetal);
+                            } 
                         }
                     }
-                    if (MetalPerSecond instanceof HTMLSpanElement) {
-                        MetalPerSecond.textContent = Intl.NumberFormat().format(GainedMetal*2);
-                    } 
                 }
             }
             this.checkButton()

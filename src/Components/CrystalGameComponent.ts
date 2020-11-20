@@ -4,6 +4,8 @@ import { MetalWallet, ScrapWallet, CrystalWallet, DrillWallet, DrillHeadWallet }
 const BaseCost = 100000;    
 const DrillCost = BaseCost*(DrillWallet.get()*1.15 || 1);
 const DrillHeadCost = BaseCost*(DrillHeadWallet.get()*1.15 || 1);
+const CrystalPerSecond = document.getElementById("CrystalPerSecond");
+const CrystalScrapPerSecond = document.getElementById("CrystalScrapPerSecond");
 
 export class CrystalGameComponent implements GameComponent {
     constructor() {
@@ -44,8 +46,16 @@ export class CrystalGameComponent implements GameComponent {
             if (DrillWallet.get() != 0){
                 const drillHead = DrillHeadWallet.get();
             }
-            ScrapWallet.add((milisecondsElapsed / 1000 * drill * (drillhead*0.5))/2);
-            CrystalWallet.add((milisecondsElapsed / 1000 * drill * (drillhead*0.5)/5));
+            const incomeScrap = (milisecondsElapsed / 1000 * drill * (drillhead*1.5)/2.5);
+            const incomeCrystal = ((milisecondsElapsed / 1000 * drill * (drillhead*1.5))*75000);
+            ScrapWallet.add(incomeScrap);
+            CrystalWallet.add(incomeCrystal);            
+            if (CrystalPerSecond instanceof HTMLSpanElement) {
+                CrystalPerSecond.textContent = Intl.NumberFormat().format(incomeScrap*2);
+            } 
+            if (CrystalScrapPerSecond instanceof HTMLSpanElement) {
+                CrystalScrapPerSecond.textContent = Intl.NumberFormat().format(incomeCrystal*2);
+            } 
         }
         return {
             UpdateInterface: true

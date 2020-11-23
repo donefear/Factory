@@ -1,10 +1,8 @@
 import { ComponentResult, GameComponent } from "../GameComponent";
-import { FoundryWallet, MetalWallet, ScrapWallet, RefineryWallet } from "../Wallet";
+import { FoundryWallet, MetalWallet, ScrapWallet, RefineryWallet, ScrapUsersWallet} from "../Wallet";
 
 
 const BaseCost = 10000;    
-const Cost = BaseCost*(FoundryWallet.get()*1.15 || 1);
-const RefineryCost = BaseCost*(FoundryWallet.get()*1.15 || 1);
 var FoundryRun:boolean;
 const button = document.getElementById("FoundryToggleIMG");
 const MetalPerSecond = document.getElementById("MetalPerSecond");
@@ -22,8 +20,10 @@ export class FoundryGameComponent implements GameComponent {
     onFoundryToggle(){
         if(FoundryRun == true){
             FoundryRun = false;
+            ScrapUsersWallet.tryRemove(1);
         }else{
             FoundryRun = true;
+            ScrapUsersWallet.add(1);
         }           
     }
 
@@ -39,33 +39,31 @@ export class FoundryGameComponent implements GameComponent {
     
 
     onClickBuyFoundry() {      
-        if (ScrapWallet.tryRemove(Cost)) {
+        if (ScrapWallet.tryRemove(this.FoundryCost())) {
             FoundryWallet.add();
         }
     }
 
     public FoundryCost() {
-        return {
-            Cost
-        }
+        const Cost = BaseCost*(FoundryWallet.get()*1.15 || 1);
+        return Cost
     }
 
     onClickBuyRefinery() {      
-        if (ScrapWallet.tryRemove(RefineryCost)) {
+        if (ScrapWallet.tryRemove(this.RefineryCost())) {
             RefineryWallet.add();
         }
     }
 
     public RefineryCost() {
-        return {
-            RefineryCost
-        }
+        const RefineryCost = BaseCost*(FoundryWallet.get()*1.15 || 1);
+        return RefineryCost
     }
 
     run(milisecondsElapsed: number): ComponentResult {
         if(FoundryRun){
             if(FoundryWallet.get() >=1){
-                const scrap = ScrapWallet.get();
+                const scrap = (ScrapWallet.get() / ScrapUsersWallet.get());
                 const foundry = FoundryWallet.get();
                 const usablescrap = scrap / 1000
                 const refinery = RefineryWallet.get();
@@ -100,6 +98,29 @@ export class FoundryGameComponent implements GameComponent {
             return {
                 UpdateInterface: false
             }
+        }
+    }
+
+    UpdateInterface(){
+        const MetalCountSpan = document.querySelectorAll(".Metal");
+        const FoundryCountSpan = document.getElementById("Foundry");
+        const FoundryCostSpan = document.getElementById("Cost_Foundry");
+        const RefineryCountSpan = document.getElementById("Refinery");
+        const RefineryCostSpan = document.getElementById("Cost_Refinery");
+        for (const x of MetalCountSpan) {
+            x.textContent = Intl.NumberFormat().format(MetalWallet.get());
+        }
+        if (FoundryCountSpan instanceof HTMLSpanElement) {
+            FoundryCountSpan.textContent = FoundryWallet.get().toString();
+        }
+        if (FoundryCostSpan instanceof HTMLSpanElement){
+            FoundryCostSpan.textContent =  Intl.NumberFormat().format(this.FoundryCost());
+        }
+        if (RefineryCountSpan instanceof HTMLSpanElement) {
+            RefineryCountSpan.textContent = RefineryWallet.get().toString();
+        }
+        if (RefineryCostSpan instanceof HTMLSpanElement){
+            RefineryCostSpan.textContent =  Intl.NumberFormat().format(this.RefineryCost());
         }
     }
 }

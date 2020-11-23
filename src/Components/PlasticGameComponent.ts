@@ -1,9 +1,7 @@
 import { ComponentResult, GameComponent } from "../GameComponent";
-import { ScrapWallet, PlasticWallet, RecyclerWallet, SmelterWallet } from "../Wallet";
+import { ScrapWallet, PlasticWallet, RecyclerWallet, SmelterWallet, ScrapUsersWallet } from "../Wallet";
 
 const BaseCost = 500;    
-const RecyclerCost = BaseCost*(RecyclerWallet.get()*1.15 || 1);
-const SmelterCost = BaseCost*(SmelterWallet.get()*1.15 || 1);
 const button = document.getElementById("PlasticToggleIMG");
 var PlasticRun:boolean;
 const PlasticPerSecond = document.getElementById("PlasticPerSecond");
@@ -18,8 +16,10 @@ export class PlasticGameComponent implements GameComponent {
     onPlasticToggle(){
         if(PlasticRun == true){
             PlasticRun = false;
+            ScrapUsersWallet.tryRemove(1);
         }else{
             PlasticRun = true;
+            ScrapUsersWallet.add(1);
         }           
     }
 
@@ -34,33 +34,31 @@ export class PlasticGameComponent implements GameComponent {
     }
 
     onClickBuyRecycler() {      
-        if (ScrapWallet.tryRemove(RecyclerCost)) {
+        if (ScrapWallet.tryRemove(this.RecyclerCost())) {
             RecyclerWallet.add();
         }
     }
 
     public RecyclerCost() {
-        return {
-            RecyclerCost
-        }
+        const RecyclerCost = BaseCost*(RecyclerWallet.get()*1.15 || 1);
+        return RecyclerCost 
     }
 
     onClickBuySmelter() {      
-        if (ScrapWallet.tryRemove(SmelterCost)) {
+        if (ScrapWallet.tryRemove(this.SmelterCost())) {
             SmelterWallet.add();
         }
     }
 
     public SmelterCost() {
-        return {
-            SmelterCost
-        }
+        const SmelterCost = BaseCost*(SmelterWallet.get()*1.15 || 1);
+        return SmelterCost
     }
 
     run(milisecondsElapsed: number): ComponentResult {
         if(PlasticRun){
             if(RecyclerWallet.get() >=1){
-                const scrap = ScrapWallet.get();
+                const scrap = (ScrapWallet.get() / ScrapUsersWallet.get());
                 const recycler = RecyclerWallet.get();
                 const usablescrap = scrap / 1000
                 const smelter = SmelterWallet.get();
@@ -97,4 +95,31 @@ export class PlasticGameComponent implements GameComponent {
             }
         }
     }
+
+    UpdateInterface(){
+        const PlasticCountSpan = document.querySelectorAll(".Plastic");
+        const RecyclerCountSpan = document.getElementById("Recycler");
+        const RecyclerCostSpan = document.getElementById("Cost_Recycler");
+        const SmelterCountSpan = document.getElementById("Smelter");
+        const SmelterCostSpan = document.getElementById("Cost_Smelter");
+        for (const x of PlasticCountSpan) {
+            x.textContent = Intl.NumberFormat().format(PlasticWallet.get());
+        }
+        if (RecyclerCountSpan instanceof HTMLSpanElement) {
+            RecyclerCountSpan.textContent = RecyclerWallet.get().toString();
+        }
+        if (SmelterCountSpan instanceof HTMLSpanElement) {
+            SmelterCountSpan.textContent = SmelterWallet.get().toString();
+        }
+        if (RecyclerCostSpan instanceof HTMLSpanElement) {
+            RecyclerCostSpan.textContent =  Intl.NumberFormat().format(this.RecyclerCost());
+        }
+        if (SmelterCostSpan instanceof HTMLSpanElement) {
+            SmelterCostSpan.textContent =  Intl.NumberFormat().format(this.SmelterCost());
+            
+        }
+    }
+
+
+
 }

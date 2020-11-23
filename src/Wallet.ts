@@ -49,6 +49,7 @@ const SmelterWallet = new Wallet("Smelter");
 const DrillWallet = new Wallet("Drill");
 const DrillHeadWallet = new Wallet("DrillHead");
 const CrystalWallet = new Wallet("Crystal");
+const ScrapUsersWallet = new Wallet("ScrapUsers");
 
 
 
@@ -56,5 +57,5 @@ export {
     ScrapWallet, PickaxeWallet, ScavengerWallet, FoundryWallet, 
     MetalWallet, BackpackWallet, PlasticWallet, RecyclerWallet, 
     SmelterWallet, DrillHeadWallet, CrystalWallet, DrillWallet,
-    RefineryWallet 
+    RefineryWallet, ScrapUsersWallet
 }

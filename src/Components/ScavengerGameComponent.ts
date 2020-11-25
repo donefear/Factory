@@ -18,7 +18,7 @@ export class ScavengerGameComponent implements GameComponent {
 
     onClickBuyBackpack() {
         if (BackpackWallet.get() < ScavengerWallet.get()) {
-            if (ScrapWallet.tryRemove(500)) {
+            if (ScrapWallet.tryRemove(this.BackpackCost()) {
                 BackpackWallet.add();
             }
         }

@@ -38,7 +38,7 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    if: github.event.pull_request.merged || github.event.push.ref == 'refs/heads/main'
+    if: github.event.event_name == 'push'
     needs: build
     
     steps:

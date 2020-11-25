@@ -41,7 +41,7 @@ export class ScavengerGameComponent implements GameComponent {
             if (backpack != 0) {
                 const backpack = BackpackWallet.get();
             }
-            let income = milisecondsElapsed / 1000 * scavengers * (backpack * 1.5);
+            let income = milisecondsElapsed / 1000 * scavengers * (backpack * 2.5);
             ScrapWallet.add(income);
             const ScrapPerSecond = document.getElementById("ScrapPerSecond");
             if (ScrapPerSecond instanceof HTMLSpanElement) {

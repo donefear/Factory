@@ -19,6 +19,9 @@ module.exports = {
                 use: [
                     {
                         loader: 'file-loader',
+                        options: {
+                            esModule: false
+                        }
                     },
                 ],
             },
@@ -34,5 +37,6 @@ module.exports = {
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist'),
+        publicPath: "/"
     },
 };

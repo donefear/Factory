@@ -10,7 +10,7 @@
 					"background": {
 						"activeOnStart": true,
 						"beginsPattern": "webpack output is served from undefined",
-						"endsPattern": "｢wdm｣: Compiled successfully"
+						"endsPattern": "｢wdm｣: Compiled .*"
 					}
 				}
 			],

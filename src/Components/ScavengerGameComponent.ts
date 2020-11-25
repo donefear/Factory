@@ -1,3 +1,4 @@
+import Format from "../Format";
 import { ComponentResult, GameComponent } from "../GameComponent";
 import { ScavengerWallet, ScrapWallet, BackpackWallet, PickaxeWallet } from "../Wallet";
 
@@ -45,7 +46,7 @@ export class ScavengerGameComponent implements GameComponent {
             ScrapWallet.add(income);
             const ScrapPerSecond = document.getElementById("ScrapPerSecond");
             if (ScrapPerSecond instanceof HTMLSpanElement) {
-                ScrapPerSecond.textContent = Intl.NumberFormat().format(income);
+                ScrapPerSecond.textContent = Format.formatDecimal(income);
             }
         }
 
@@ -64,10 +65,10 @@ export class ScavengerGameComponent implements GameComponent {
         const BackpackCountSpan = document.getElementById("Backpack");
         const BackpackCostSpan = document.getElementById("Cost_ScavengerBackpack");
         for (const x of backAccountCountSpan) {
-            x.textContent = Intl.NumberFormat().format(ScrapWallet.get());
+            x.textContent = Format.formatDecimal(ScrapWallet.get());
         }
         if (KlickSecondCountSpan instanceof HTMLSpanElement) {
-            const x = Intl.NumberFormat().format(PickaxeWallet.get() * 1.5 + 1);
+            const x = Format.formatDecimal(PickaxeWallet.get() * 1.5 + 1);
             KlickSecondCountSpan.textContent = x.toString();
         }
         if (PickaxeCountSpan instanceof HTMLSpanElement) {
@@ -83,10 +84,10 @@ export class ScavengerGameComponent implements GameComponent {
             BackpackCountSpan.textContent = BackpackWallet.get().toString();
         }
         if (BackpackCostSpan instanceof HTMLSpanElement) {
-            BackpackCostSpan.textContent = Intl.NumberFormat().format(this.BackpackCost());
+            BackpackCostSpan.textContent = Format.formatDecimal(this.BackpackCost());
         }
         if (ScavengerCostSpan instanceof HTMLSpanElement) {
-            ScavengerCostSpan.textContent = Intl.NumberFormat().format(this.ScavengerCost());
+            ScavengerCostSpan.textContent = Format.formatDecimal(this.ScavengerCost());
         }
     }
 }

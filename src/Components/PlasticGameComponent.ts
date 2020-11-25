@@ -2,6 +2,7 @@ import { ComponentResult, GameComponent } from "../GameComponent";
 import { ScrapWallet, PlasticWallet, RecyclerWallet, SmelterWallet, ScrapUsersWallet } from "../Wallet";
 import onImage from "../Icon/ON.png";
 import offImage from "../Icon/OFF.png";
+import Format from "../Format";
 
 const BaseCost = 500;    
 const button = document.getElementById("PlasticToggleIMG");
@@ -70,14 +71,14 @@ export class PlasticGameComponent implements GameComponent {
                         if(ScrapWallet.tryRemove(usablescrap*1000)){
                             PlasticWallet.add(usablescrap)
                             if (PlasticPerSecond instanceof HTMLSpanElement) {
-                                PlasticPerSecond.textContent = Intl.NumberFormat().format(usablescrap);
+                                PlasticPerSecond.textContent = Format.formatDecimal(usablescrap);
                             } 
                         }
                     }else{
                         if(ScrapWallet.tryRemove(GainedPlastic*1000)){
                             PlasticWallet.add(GainedPlastic)
                             if (PlasticPerSecond instanceof HTMLSpanElement) {
-                                PlasticPerSecond.textContent = Intl.NumberFormat().format(GainedPlastic);
+                                PlasticPerSecond.textContent = Format.formatDecimal(GainedPlastic);
                             } 
                         }
                     }
@@ -90,7 +91,7 @@ export class PlasticGameComponent implements GameComponent {
         }else{
             this.checkButton()            
             if (PlasticPerSecond instanceof HTMLSpanElement) {
-                PlasticPerSecond.textContent = Intl.NumberFormat().format(0);
+                PlasticPerSecond.textContent = Format.formatDecimal(0);
             } 
             return {
                 UpdateInterface: false
@@ -105,7 +106,7 @@ export class PlasticGameComponent implements GameComponent {
         const SmelterCountSpan = document.getElementById("Smelter");
         const SmelterCostSpan = document.getElementById("Cost_Smelter");
         for (const x of PlasticCountSpan) {
-            x.textContent = Intl.NumberFormat().format(PlasticWallet.get());
+            x.textContent = Format.formatDecimal(PlasticWallet.get());
         }
         if (RecyclerCountSpan instanceof HTMLSpanElement) {
             RecyclerCountSpan.textContent = RecyclerWallet.get().toString();
@@ -114,10 +115,10 @@ export class PlasticGameComponent implements GameComponent {
             SmelterCountSpan.textContent = SmelterWallet.get().toString();
         }
         if (RecyclerCostSpan instanceof HTMLSpanElement) {
-            RecyclerCostSpan.textContent =  Intl.NumberFormat().format(this.RecyclerCost());
+            RecyclerCostSpan.textContent =  Format.formatDecimal(this.RecyclerCost());
         }
         if (SmelterCostSpan instanceof HTMLSpanElement) {
-            SmelterCostSpan.textContent =  Intl.NumberFormat().format(this.SmelterCost());
+            SmelterCostSpan.textContent =  Format.formatDecimal(this.SmelterCost());
             
         }
     }

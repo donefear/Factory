@@ -2,6 +2,7 @@ import { ComponentResult, GameComponent } from "../GameComponent";
 import { FoundryWallet, MetalWallet, ScrapWallet, RefineryWallet, ScrapUsersWallet} from "../Wallet";
 import onImage from "../Icon/ON.png";
 import offImage from "../Icon/OFF.png";
+import Format from "../Format";
 
 const BaseCost = 10000;    
 var FoundryRun:boolean;
@@ -74,14 +75,14 @@ export class FoundryGameComponent implements GameComponent {
                         if(ScrapWallet.tryRemove(usablescrap*1000)){
                             MetalWallet.add(usablescrap)
                             if (MetalPerSecond instanceof HTMLSpanElement) {
-                                MetalPerSecond.textContent = Intl.NumberFormat().format(usablescrap);
+                                MetalPerSecond.textContent = Format.formatDecimal(usablescrap);
                             } 
                         }
                     }else{
                         if(ScrapWallet.tryRemove(GainedMetal*1000)){
                             MetalWallet.add(GainedMetal)
                             if (MetalPerSecond instanceof HTMLSpanElement) {
-                                MetalPerSecond.textContent = Intl.NumberFormat().format(GainedMetal);
+                                MetalPerSecond.textContent = Format.formatDecimal(GainedMetal);
                             } 
                         }
                     }
@@ -94,7 +95,7 @@ export class FoundryGameComponent implements GameComponent {
         }else{
             this.checkButton()            
             if (MetalPerSecond instanceof HTMLSpanElement) {
-                MetalPerSecond.textContent = Intl.NumberFormat().format(0);
+                MetalPerSecond.textContent = Format.formatDecimal(0);
             } 
             return {
                 UpdateInterface: false
@@ -109,19 +110,19 @@ export class FoundryGameComponent implements GameComponent {
         const RefineryCountSpan = document.getElementById("Refinery");
         const RefineryCostSpan = document.getElementById("Cost_Refinery");
         for (const x of MetalCountSpan) {
-            x.textContent = Intl.NumberFormat().format(MetalWallet.get());
+            x.textContent = Format.formatDecimal(MetalWallet.get());
         }
         if (FoundryCountSpan instanceof HTMLSpanElement) {
             FoundryCountSpan.textContent = FoundryWallet.get().toString();
         }
         if (FoundryCostSpan instanceof HTMLSpanElement){
-            FoundryCostSpan.textContent =  Intl.NumberFormat().format(this.FoundryCost());
+            FoundryCostSpan.textContent =  Format.formatDecimal(this.FoundryCost());
         }
         if (RefineryCountSpan instanceof HTMLSpanElement) {
             RefineryCountSpan.textContent = RefineryWallet.get().toString();
         }
         if (RefineryCostSpan instanceof HTMLSpanElement){
-            RefineryCostSpan.textContent =  Intl.NumberFormat().format(this.RefineryCost());
+            RefineryCostSpan.textContent =  Format.formatDecimal(this.RefineryCost());
         }
     }
 }

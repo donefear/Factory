@@ -1,5 +1,6 @@
 import { ComponentResult, GameComponent } from "../GameComponent";
 import { MetalWallet, ScrapWallet, CrystalWallet, DrillWallet, DrillHeadWallet } from "../Wallet";
+import Format from "../Format";
 
 const BaseCost = 100000;
 const CrystalPerSecond = document.getElementById("CrystalPerSecond");
@@ -47,10 +48,10 @@ export class CrystalGameComponent implements GameComponent {
             ScrapWallet.add(incomeScrap);
             CrystalWallet.add(incomeCrystal);
             if (CrystalPerSecond instanceof HTMLSpanElement) {
-                CrystalPerSecond.textContent = Intl.NumberFormat().format(incomeScrap * 2);
+                CrystalPerSecond.textContent = Format.formatDecimal(incomeScrap * 2);
             }
             if (CrystalScrapPerSecond instanceof HTMLSpanElement) {
-                CrystalScrapPerSecond.textContent = Intl.NumberFormat().format(incomeCrystal * 2);
+                CrystalScrapPerSecond.textContent = Format.formatDecimal(incomeCrystal * 2);
             }
         }
         return {
@@ -65,7 +66,7 @@ export class CrystalGameComponent implements GameComponent {
         const DrillHeadCountSpan = document.getElementById("DrillHead");
         const DrillHeadCostSpan = document.getElementById("Cost_DrillHead");
         for (const x of CrystalCountSpan) {
-            x.textContent = Intl.NumberFormat().format(CrystalWallet.get());
+            x.textContent = Format.formatDecimal(CrystalWallet.get());
         }
         if (DeepDrillCountSpan instanceof HTMLSpanElement) {
             DeepDrillCountSpan.textContent = DrillWallet.get().toString();
@@ -74,10 +75,10 @@ export class CrystalGameComponent implements GameComponent {
             DrillHeadCountSpan.textContent = DrillHeadWallet.get().toString();
         }
         if (DeepDrillCostSpan instanceof HTMLSpanElement) {
-            DeepDrillCostSpan.textContent = Intl.NumberFormat().format(this.DrillCost());
+            DeepDrillCostSpan.textContent = Format.formatDecimal(this.DrillCost());
         }
         if (DrillHeadCostSpan instanceof HTMLSpanElement) {
-            DrillHeadCostSpan.textContent = Intl.NumberFormat().format(this.DrillHeadCost());
+            DrillHeadCostSpan.textContent = Format.formatDecimal(this.DrillHeadCost());
 
         }
     }

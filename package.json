@@ -12,6 +12,7 @@
   "license": "UNLICENSED",
   "dependencies": {
     "css-loader": "^5.0.1",
+    "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.0.0-alpha.13",
     "style-loader": "^2.0.0",
     "ts-loader": "^8.0.11",

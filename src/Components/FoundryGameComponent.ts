@@ -1,6 +1,7 @@
 import { ComponentResult, GameComponent } from "../GameComponent";
 import { FoundryWallet, MetalWallet, ScrapWallet, RefineryWallet, ScrapUsersWallet} from "../Wallet";
-
+import onImage from "../Icon/ON.png";
+import offImage from "../Icon/OFF.png";
 
 const BaseCost = 10000;    
 var FoundryRun:boolean;
@@ -30,9 +31,9 @@ export class FoundryGameComponent implements GameComponent {
     checkButton(){
         if (button instanceof HTMLImageElement){
             if (FoundryRun){                
-                button.src ="src/Icon/ON.png";
+                button.src = onImage;
             }else{                
-                button.src ="src/Icon/OFF.png";
+                button.src = offImage;
             }
         } 
     }

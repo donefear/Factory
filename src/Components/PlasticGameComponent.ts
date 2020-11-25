@@ -1,5 +1,7 @@
 import { ComponentResult, GameComponent } from "../GameComponent";
 import { ScrapWallet, PlasticWallet, RecyclerWallet, SmelterWallet, ScrapUsersWallet } from "../Wallet";
+import onImage from "../Icon/ON.png";
+import offImage from "../Icon/OFF.png";
 
 const BaseCost = 500;    
 const button = document.getElementById("PlasticToggleIMG");
@@ -26,9 +28,9 @@ export class PlasticGameComponent implements GameComponent {
     checkButton(){
         if (button instanceof HTMLImageElement){
             if (PlasticRun){                
-                button.src ="src/Icon/ON.png";
+                button.src = onImage;
             }else{                
-                button.src ="src/Icon/OFF.png";
+                button.src = offImage;
             }
         } 
     }

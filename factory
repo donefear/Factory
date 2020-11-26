@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-11-21T10:34:49.276Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 Safari/537.36 Edg/87.0.664.41" etag="D2VeIKrUd1ouRCQr2nSj" version="13.10.0" type="github">
+<mxfile host="app.diagrams.net" modified="2020-11-26T19:54:54.607Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.67 Safari/537.36 Edg/87.0.664.47" etag="v4zLrjP-SElom1v61EcT" version="13.10.4" type="github">
   <diagram id="HQGqdZTccVAfWuXQE6w2" name="Page-1">
     <mxGraphModel dx="3076" dy="1963" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="1">
       <root>
@@ -98,19 +98,29 @@
           <mxGeometry x="-473" y="530" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="q2S3XFusEiC2400LCA0j-1" value="laser weapons&lt;br&gt;" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="-1360" y="1080" width="120" height="60" as="geometry" />
+          <mxGeometry x="-1260" y="780" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="q2S3XFusEiC2400LCA0j-2" value="wariors&lt;br&gt;robots" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="-1190" y="1080" width="120" height="60" as="geometry" />
+          <mxGeometry x="-1150" y="870" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="q2S3XFusEiC2400LCA0j-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="q2S3XFusEiC2400LCA0j-3" target="q2S3XFusEiC2400LCA0j-4" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="q2S3XFusEiC2400LCA0j-3" value="normal weapons&lt;br&gt;" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="-1020" y="1090" width="120" height="60" as="geometry" />
+          <mxGeometry x="-1010" y="780" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="q2S3XFusEiC2400LCA0j-4" value="gunpowder&lt;br&gt;" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="-1010" y="990" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="W6iy5BwLra31kx5qVYBx-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="q2S3XFusEiC2400LCA0j-6" target="q2S3XFusEiC2400LCA0j-8">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-1220" y="290" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="-1080" y="260" />
+              <mxPoint x="-1320" y="260" />
+              <mxPoint x="-1320" y="555" />
+            </Array>
+          </mxGeometry>
         </mxCell>
         <mxCell id="q2S3XFusEiC2400LCA0j-6" value="crystals&lt;br&gt;" style="whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
           <mxGeometry x="-1140" y="-30" width="120" height="60" as="geometry" />
@@ -148,7 +158,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="q2S3XFusEiC2400LCA0j-8" value="optics&lt;br&gt;" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="-1130" y="490" width="120" height="60" as="geometry" />
+          <mxGeometry x="-900" y="525" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="q2S3XFusEiC2400LCA0j-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="q2S3XFusEiC2400LCA0j-15" target="q2S3XFusEiC2400LCA0j-6" edge="1">
           <mxGeometry relative="1" as="geometry" />
